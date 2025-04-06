@@ -11,7 +11,7 @@
 ollama run llama3.2
 ```
 
-<p>Biblioteca utilizada: <b>Flet</b> para o frot-end e a <b>langchain</b> para manipular o modelo de ia.</p>
+<p>Biblioteca utilizada: <b>Flet</b> ver:0.27.6 para o frot-end e a <b>langchain</b> para manipular o modelo de ia.</p>
 
 [Link do Flet](https://flet.dev/)
 
