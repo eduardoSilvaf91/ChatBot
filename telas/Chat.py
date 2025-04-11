@@ -1,7 +1,7 @@
 import flet as ft
 from components.TextBox import TextBox
 from components.Input import Input
-from components.llm import chain
+from components.llm import run_ai
 
 class Chat(ft.Column):
     
@@ -11,7 +11,7 @@ class Chat(ft.Column):
         self.__input = Input(function = lambda e : self.send_Input(e))
         
         self.__user_text = ''
-        self.__ai = chain
+    
         
         self.controls = [
             ft.Column(controls=[
@@ -70,13 +70,15 @@ class Chat(ft.Column):
             ia_box
             )
         
-        txt = ""
-        c = self.__ai.stream({f"texto": {self.__user_text}})
+        # run ai
+        text_ai = ""
         
-        for t in c:
-            txt += t
-            ia_box.change_text(txt)
+        for resposta_ai in run_ai(self.__user_text):
+            text_ai += resposta_ai
+            ia_box.change_text(text_ai)
+            
             self.update()
+            
         loading.visible = False
         self.update()
 
